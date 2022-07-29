@@ -29,8 +29,12 @@ class Utente {
         return $somma;
     }
 
-    public function pagamento() {
-        return 'Il prezzo da pagare è di ' . $this->prezzoDaPagare() . ' euro';
+    public function pagamento($saldoCartaPrepagata) {
+        if ($this->prezzoDaPagare() > $saldoCartaPrepagata) {
+            return 'MI DISPIACE, PAGAMENTO NON ANDATO A BUON FINE.';
+        } else {
+            return 'Il prezzo da pagare è di ' . $this->prezzoDaPagare() . ' euro';
+        }
     }
 }
 
