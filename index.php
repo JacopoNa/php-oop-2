@@ -23,7 +23,19 @@ $DogFarmaco = new Farmaco(18.90, 'Frontline Homegard', '250ml', 'antiparassitari
 $GiovanniRossi = new UtenteRegistrato('Giovanni Rossi');
 $GiovanniRossi->prodottoNelCarrello($DogGioco);
 $CartaPrepagata = new Carta ('Giovanni Rossi', 16266363, 212);
-echo $GiovanniRossi->pagamento($CartaPrepagata->saldoCarta);
+
+try {
+    if($GiovanniRossi->pagamento($CartaPrepagata->saldoCarta) === 'pagamento a buon fine') {
+        echo '<h2> Grazie per aver completato il tuo acquisto! </h2>';
+    }
+} catch (Exception $e) {
+    echo "<h3> Mi dispiace, il pagamento non è andato a buon fine, controlla il tuo saldo disponibile e ritenta. </h3>";
+}
+
+
+
+
+
 
 $ValeBianchi = new UtenteStandard('Vale Bianchi');
 $ValeBianchi->prodottoNelCarrello($DogGioco);

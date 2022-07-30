@@ -4,7 +4,7 @@ class  Carta {
     public $nomeTitolare;
     public $numero;
     public $cvv;
-    public $saldoCarta = 40;
+    public $saldoCarta = 15;
 
     public function __construct($_nomeTitolare, $_numero, $_cvv) {
         $this->nomeTitolare = $_nomeTitolare;

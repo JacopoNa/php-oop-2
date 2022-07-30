@@ -30,10 +30,12 @@ class Utente {
     }
 
     public function pagamento($saldoCartaPrepagata) {
-        if ($this->prezzoDaPagare() > $saldoCartaPrepagata) {
-            return 'MI DISPIACE, PAGAMENTO NON ANDATO A BUON FINE.';
+        $prezzo = $this->prezzoDaPagare();
+
+        if ($prezzo > $saldoCartaPrepagata) {
+            throw new Exception('Saldo non disponibile');
         } else {
-            return 'Il prezzo da pagare è di ' . $this->prezzoDaPagare() . ' euro';
+            return 'pagamento a buon fine';
         }
     }
 }
